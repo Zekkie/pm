@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title Document
+		link(rel="stylesheet", href="/css/style.css")
+				
+	body
+		h1 Yo
+		div#view
+			each source in data
+				a(href="/source/"+source.id).source.flex-column
+					h1=source.name
+					p=source.description

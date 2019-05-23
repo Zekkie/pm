@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title Document
+		link(rel="stylesheet", href="/css/style.css")
+				
+	body
+		div#view
+			each card in data
+				section
+					div.content
+						h1=card.title
+						img(src=card.image)
+						p=card.content
+					a(href=card.url).
+						Read More
