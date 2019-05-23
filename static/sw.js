@@ -28,3 +28,5 @@ self.addEventListener("fetch", function(event){
 		})
 	);
 });
+
+//tset
