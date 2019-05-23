@@ -3,15 +3,26 @@ html(lang="en")
 	head
 		meta(charset="UTF-8")
 		title Document
-		link(rel="stylesheet", href="/css/style.css")
-				
+		link(rel="stylesheet", href="/css/vendor.css")
+		script(src="/js/script.js")
+		script(src="/js/main.js")
+		script(src="/js/skeleton.js")
+		link(href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet")
 	body
 		div#view
 			each card in data
 				section
+					div.skeleton
+						div.skeleton-title
+						div.skeleton-img
+						div.skeleton-line
+						div.skeleton-line
+						div.skeleton-line
+						div.skeleton-line
+						div.skeleton-line-short
 					div.content
 						h1=card.title
-						img(src=card.image)
+						img(data-src=card.image)
 						p=card.content
 					a(href=card.url).
 						Read More

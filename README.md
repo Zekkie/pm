@@ -118,3 +118,19 @@ to run this, I've created a npm script
 npm run-script build
 ```
 
+## IMAGES, WHAT ABOUT THOSE?
+
+Since the image's come from an API, it's not possible to compress those to .webp. But we could do something with perceived performance and display placeholders until the image is fully loaded! :D. That will require JS though.
+
+
+##CACHING
+
+For caching we will be using a simple service worker. 
+
+![CACHE](https://i.gyazo.com/c13cdf29f8977aa093ed0d9c5b181451.png)
+
+Caching is now been done from the serviceworker. 
+
+## TESTING
+
+All of the tests were done under slow-3g.
