@@ -4,13 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp create-vendor-css && gulp create-vendor-js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.0",
+    "express-static-gzip": "^1.1.3",
+    "pre-compressed-assets": "^2.1.1",
     "pug": "^2.0.3",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-gzip": "^1.4.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglifycss": "^1.1.0"
   }
 }

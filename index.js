@@ -1,13 +1,58 @@
 const express = require("express");
 const app = express();
 const request = require("request");
+var expressStaticGzip = require("express-static-gzip");
+const path = require("path");
+const fs = require("fs")
 
 
 app.set('view engine',"pug");
-app.set("voews", "./views");
-app.use(express.static("static"));
+app.set("views", "./views");
 
+
+
+
+app.use("/js", express.static("static"));
+app.use("/css", express.static("static"));
 let sources = [];
+
+//app.use('/', expressStaticGzip(path.join(__dirname,'static')));
+
+
+app.get("*.js", (req, res, next) => {
+
+    // only if file exists, the substr is to remove /assets in front
+    if (!fs.existsSync(`./static/js/${req.url.substr(4)}.gz`)) {
+    	console.log(req.url.substr(4))
+        return next();
+    }
+
+    console.log(`${req.url} -> ${req.url}.gz`);
+
+    req.url = `${req.url}.gz`;
+    res.set("Content-Encoding", "gzip");
+    res.set("Content-Type", "text/javascript");
+    next();
+});
+
+app.get("*.css", (req, res, next) => {
+
+    // only if file exists, the substr is to remove /assets in front
+    if (!fs.existsSync(`./static/css/${req.url.substr(4)}.gz`)) {
+    	console.log(req.url.substr(4))
+        return next();
+    }
+
+    console.log(`${req.url} -> ${req.url}.gz`);
+
+    req.url = `${req.url}.gz`;
+    res.set("Content-Encoding", "gzip");
+    res.set("Content-Type", "text/css");
+    next();
+});
+
+
+app.use(express.static('static'));
 
 const findDataArray = (object) => {
 	const keys = Object.keys(object);
