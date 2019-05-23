@@ -23,11 +23,9 @@ app.get("*.js", (req, res, next) => {
 
     // only if file exists, the substr is to remove /assets in front
     if (!fs.existsSync(`./static/js/${req.url.substr(4)}.gz`)) {
-    	console.log(req.url.substr(4))
         return next();
     }
 
-    console.log(`${req.url} -> ${req.url}.gz`);
 
     req.url = `${req.url}.gz`;
     res.set("Content-Encoding", "gzip");
@@ -39,11 +37,9 @@ app.get("*.css", (req, res, next) => {
 
     // only if file exists, the substr is to remove /assets in front
     if (!fs.existsSync(`./static/css/${req.url.substr(4)}.gz`)) {
-    	console.log(req.url.substr(4))
         return next();
     }
 
-    console.log(`${req.url} -> ${req.url}.gz`);
 
     req.url = `${req.url}.gz`;
     res.set("Content-Encoding", "gzip");
