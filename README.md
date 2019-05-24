@@ -1,5 +1,16 @@
 # PERFORMANCE MATTERS
 
+## DEMO
+
+[See demo here](http://178.128.247.118:9000)
+
+## INSTALL
+
+    - git clone https://github.com/zekkie/pm.git
+    - cd pm && npm install
+    - node index.js
+    - [http://localhost:9000](http://localhost:9000)
+
 ## SEVERSIDE RENDERED PAGE VS SPA(SINGLE PAGE APP)
 
 ### SINGLE PAGE PERFORMANCE
